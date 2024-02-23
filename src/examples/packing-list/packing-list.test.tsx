@@ -1,5 +1,16 @@
 import { render, screen } from 'test/utilities';
 import PackingList from '.';
+import { createStore } from './store';
+import { Provider } from 'react-redux';
+
+// createStore()
+const renderWithProvider = (ui: React.ReactElement) => {
+  return render(
+    <Provider store={createStore()}>
+      <PackingList />
+    </Provider>,
+  );
+};
 
 it('renders the Packing List application', () => {
   render(<PackingList />);
